@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35617.110 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorePortfolio.WebUI", "CorePortfolio.WebUI\CorePortfolio.WebUI.csproj", "{A04431AD-18B7-4FC2-A9C9-9A8121280FB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorePortfolio.Entities", "CorePortfolio.Entities\CorePortfolio.Entities.csproj", "{2ADE544E-A465-4F3C-B81E-6D734266FD19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A04431AD-18B7-4FC2-A9C9-9A8121280FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A04431AD-18B7-4FC2-A9C9-9A8121280FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A04431AD-18B7-4FC2-A9C9-9A8121280FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ADE544E-A465-4F3C-B81E-6D734266FD19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ADE544E-A465-4F3C-B81E-6D734266FD19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ADE544E-A465-4F3C-B81E-6D734266FD19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ADE544E-A465-4F3C-B81E-6D734266FD19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
