@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorePortfolio.WebUI", "Core
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorePortfolio.Entities", "CorePortfolio.Entities\CorePortfolio.Entities.csproj", "{2ADE544E-A465-4F3C-B81E-6D734266FD19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorePortfolio.DataAccess", "CorePortfolio.DataAccess\CorePortfolio.DataAccess.csproj", "{C64D7461-2384-4718-8CF3-0F55389B57F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2ADE544E-A465-4F3C-B81E-6D734266FD19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ADE544E-A465-4F3C-B81E-6D734266FD19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ADE544E-A465-4F3C-B81E-6D734266FD19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C64D7461-2384-4718-8CF3-0F55389B57F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C64D7461-2384-4718-8CF3-0F55389B57F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C64D7461-2384-4718-8CF3-0F55389B57F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C64D7461-2384-4718-8CF3-0F55389B57F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
