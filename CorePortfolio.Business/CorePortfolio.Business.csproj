@@ -6,4 +6,8 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CorePortfolio.DataAccess\CorePortfolio.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
