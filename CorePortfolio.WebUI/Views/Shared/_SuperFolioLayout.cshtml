@@ -1,0 +1,24 @@
+﻿@{ Layout = null;}
+<!DOCTYPE html>
+<html lang="tr">
+@await Component.InvokeAsync("_HeadLayoutComponentPartial")
+<body id="top">
+    @await Component.InvokeAsync("_NavbarLayoutComponentPartial")
+    <div class="page-content">
+        <div id="content">
+            @RenderBody()
+            @await Component.InvokeAsync("FeatureList")
+            @await Component.InvokeAsync("AboutSection")
+            @await Component.InvokeAsync("MyServicesSection")
+            @await Component.InvokeAsync("SkillSection")
+            @await Component.InvokeAsync("PortfolioSection")
+            @await Component.InvokeAsync("ExperienceSection")
+            @await Component.InvokeAsync("TestimonialsSection")
+            <partial name="SendMessage" />              
+            @await Component.InvokeAsync("_FooterLayoutComponentPartial")
+        </div>
+    </div>
+    <div id="scrolltop"><a class="btn btn-secondary" href="#top"><span class="icon"><i class="fas fa-angle-up fa-x"></i></span></a></div>
+    @await Component.InvokeAsync("_ScriptsLayoutComponentPartial")  
+</body>
+</html>

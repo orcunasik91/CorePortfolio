@@ -1,32 +1,34 @@
-﻿using System.Diagnostics;
-using CorePortfolio.WebUI.Models;
+﻿using CorePortfolio.Business.Abstract;
+using CorePortfolio.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CorePortfolio.WebUI.Controllers
+namespace CorePortfolio.WebUI.Controllers;
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    private readonly IMessageService _messageService;
+
+    public HomeController(IMessageService messageService)
     {
-        private readonly ILogger<HomeController> _logger;
+        _messageService = messageService;
+    }
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+    public IActionResult Index()
+    {
+        return View();
+    }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+    [HttpGet]
+    public IActionResult SendMessage()
+    {
+        return PartialView();
+    }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+    [HttpPost]
+    public IActionResult SendMessage(Message message)
+    {
+        message.DateSent = Convert.ToDateTime(DateTime.Now.ToString("d"));
+        message.IsRead = false;
+        _messageService.Insert(message);
+        return RedirectToAction(nameof(Index));
     }
 }
