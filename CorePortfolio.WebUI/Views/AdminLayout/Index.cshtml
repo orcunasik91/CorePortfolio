@@ -2,24 +2,21 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 @await Component.InvokeAsync("AdminLayoutHeadComponentPartial")
 <body>
-    @await Component.InvokeAsync("AdminLayoutSidenavComponentPartial")
-    <div class="main-content" id="panel">
-        @await Component.InvokeAsync("AdminLayoutNavbarComponentPartial")
-        @await Component.InvokeAsync("AdminLayoutHeaderBreadcrumbComponentPartial")
-        <div class="container-fluid mt--6">
-            <div class="row">
-                <div class="col">
-                    <div class="card border-0">
-                        @RenderBody()
-                    </div>
+    <div class="container-scroller">
+        @await Component.InvokeAsync("AdminLayoutSidenavComponentPartial")
+        <div class="container-fluid page-body-wrapper">
+            @await Component.InvokeAsync("AdminLayoutNavbarComponentPartial")
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @RenderBody()
                 </div>
+                @await Component.InvokeAsync("AdminLayoutFooterComponentPartial")
             </div>
-            @await Component.InvokeAsync("AdminLayoutFooterComponentPartial")
         </div>
     </div>
-   @await Component.InvokeAsync("AdminLayoutScriptsComponentPartial")
+    @await Component.InvokeAsync("AdminLayoutScriptsComponentPartial")
 </body>
 </html>
