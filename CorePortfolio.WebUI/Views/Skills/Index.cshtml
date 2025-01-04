@@ -1,28 +1,55 @@
-﻿
+﻿@model List<Skill>
 @{
     ViewData["Title"] = "Yetenekler";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
-<table class="table table-hover">
-    <tr>
-        <th>#</th>
-        <th>Başlık</th>
-        <th>Oran</th>
-        <th>Düzenle</th>
-        <th>Kaldır</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>C#</td>
-        <td>65%</td>
-        <td><a class="btn btn-primary" href="">Düzenle</a></td>
-        <td><a class="btn btn-danger" href="">Kaldır</a></td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>SQL</td>
-        <td>56%</td>
-        <td><a class="btn btn-primary" href="">Düzenle</a></td>
-        <td><a class="btn btn-danger" href="">Kaldır</a></td>
-    </tr>
-</table>
+
+<div class="page-header">
+    <a class="btn btn-primary mx-3" asp-area="" asp-controller="Skills" asp-action="CreateSkill">Yeni</a>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="" asp-controller="Skills" asp-action="Index">Yetenekler</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Yetenek Listesi</li>
+        </ol>
+    </nav>
+</div>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yetenek Listesi</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th> # </th>
+                            <th> Yetenek </th>
+                            <th> Oranı </th>
+                            <th> Düzenle </th>
+                            <th> Kaldır </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int count = 1;
+                            foreach (Skill skill in Model)
+                            {
+                                <tr>
+                                    <th> @count </th>
+                                    <td> @skill.Title</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: @skill.Value%" aria-valuenow="@skill.Value" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </td>
+                                    <td><a class="btn btn-warning" asp-area="" asp-controller="Skills" asp-action="GetSkill" asp-route-id="@skill.SkillId">Düzenle</a></td>
+                                    <td><a class="btn btn-danger" asp-area="" asp-controller="Skills" asp-action="RemoveSkill" asp-route-id="@skill.SkillId">Kaldır</a></td>
+                                </tr>
+                                count++;
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
