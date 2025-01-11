@@ -22,6 +22,9 @@
                     <div class="col-sm-9">
                         <input type="text" class="form-control" asp-for="ProjectName" placeholder="Proje">
                     </div>
+                    <div class="col-sm-12">
+                        <span class="text-danger" asp-validation-for="ProjectName"></span>
+                    </div>
                 </div>
                 <div class="form-group row">
                     <label asp-for="ImageUrl" class="col-sm-3 col-form-label">Görsel</label>

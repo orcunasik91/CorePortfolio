@@ -1,5 +1,7 @@
 ﻿using CorePortfolio.Business.Abstract;
+using CorePortfolio.Business.ValidationRules;
 using CorePortfolio.Entities.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CorePortfolio.WebUI.Controllers;
@@ -28,8 +30,21 @@ public class PortfolioController : Controller
     [HttpPost]
     public IActionResult CreatePortfolio(Portfolio portfolio)
     {
-        _portfolioService.Insert(portfolio);
-        return RedirectToAction(nameof(Index));
+        PortfolioAddValidator validator = new();
+        ValidationResult validationResult = validator.Validate(portfolio);
+        if (validationResult.IsValid)
+        {
+            _portfolioService.Insert(portfolio);
+            return RedirectToAction(nameof(Index));
+        }
+        else
+        {
+            foreach (ValidationFailure error in validationResult.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+        }
+        return View();
     }
 
     [HttpGet]
