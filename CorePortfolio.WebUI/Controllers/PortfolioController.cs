@@ -1,0 +1,55 @@
+﻿using CorePortfolio.Business.Abstract;
+using CorePortfolio.Entities.Concrete;
+using Microsoft.AspNetCore.Mvc;
+
+namespace CorePortfolio.WebUI.Controllers;
+public class PortfolioController : Controller
+{
+    private readonly IPortfolioService _portfolioService;
+
+    public PortfolioController(IPortfolioService portfolioService)
+    {
+        _portfolioService = portfolioService;
+    }
+
+    [HttpGet]
+    public IActionResult Index()
+    {
+        var datas = _portfolioService.GetList();
+        return View(datas);
+    }
+
+    [HttpGet]
+    public IActionResult CreatePortfolio()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult CreatePortfolio(Portfolio portfolio)
+    {
+        _portfolioService.Insert(portfolio);
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpGet]
+    public IActionResult GetPortfolio(int id)
+    {
+        var result = _portfolioService.GetById(id);
+        return View(result);
+    }
+
+    [HttpPost]
+    public IActionResult UpdatePortfolio(Portfolio portfolio)
+    {
+        _portfolioService.Update(portfolio);
+        return RedirectToAction(nameof(Index));
+    }
+
+    public IActionResult RemovePortfolio(int id)
+    {
+        var result = _portfolioService.GetById(id);
+        _portfolioService.Delete(result);
+        return RedirectToAction(nameof(Index));
+    }
+}
