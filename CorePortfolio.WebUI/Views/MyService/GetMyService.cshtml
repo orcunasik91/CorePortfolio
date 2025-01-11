@@ -1,0 +1,39 @@
+﻿@model MyService
+@{
+    ViewData["Title"] = "Hizmet Düzenle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="page-header">
+    <a class="btn btn-primary mx-3" asp-area="" asp-controller="MyService" asp-action="Index">Geri Dön</a>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="" asp-controller="MyService" asp-action="Index">Hizmetlerim</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Hizmet Düzenle</li>
+        </ol>
+    </nav>
+</div>
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hizmet Düzenle</h4>
+            <form class="forms-sample" asp-area="" asp-controller="MyService" asp-action="UpdateMyService" method="post">
+                <input type="hidden" asp-for="MyServiceId" />
+                <div class="form-group row">
+                    <label asp-for="Title" class="col-sm-3 col-form-label">Başlık</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" asp-for="Title" placeholder="Başlık">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="ImageUrl" class="col-sm-3 col-form-label">Görsel</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" asp-for="ImageUrl" placeholder="Görsel">
+                    </div>
+                </div>
+                <div class="form-group row justify-content-end align-items-end mr-0">
+                    <button class="btn btn-success">Güncelle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
