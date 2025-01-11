@@ -1,0 +1,42 @@
+﻿@model List<Feature>
+@{
+    ViewData["Title"] = "Öne Çıkan Yazı";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="page-header">
+    <a class="btn btn-warning mx-3" asp-area="" asp-controller="Feature" asp-action="GetFeature" asp-route-id="1">Düzenle</a>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="" asp-controller="Feature" asp-action="Index">Öne Çıkan</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Öne Çıkan Yazım</li>
+        </ol>
+    </nav>
+</div>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Öne Çıkan Yazım</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th> Başlık </th>
+                            <th> Ad Soyad </th>
+                            <th> Ünvan </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Feature feature in Model)
+                        {
+                            <tr>
+                                <td> @feature.Header </td>
+                                <td> @feature.FullName </td>
+                                <td> @feature.Title </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

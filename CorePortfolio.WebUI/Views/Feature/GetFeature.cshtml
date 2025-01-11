@@ -1,0 +1,45 @@
+﻿@model Feature
+@{
+    ViewData["Title"] = "Öne Çıkan Yazıyı Düzenle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="page-header">
+    <a class="btn btn-primary mx-3" asp-area="" asp-controller="Feature" asp-action="Index">Geri Dön</a>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="" asp-controller="Feature" asp-action="Index">Öne Çıkan</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Öne Çıkan Yazıyı Düzenle</li>
+        </ol>
+    </nav>
+</div>
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Öne Çıkan Yazıyı Düzenle</h4>
+            <form class="forms-sample" asp-area="" asp-controller="Feature" asp-action="UpdateFeature" method="post">
+                <input type="hidden" asp-for="FeatureId" />
+                <div class="form-group row">
+                    <label asp-for="Header" class="col-sm-3 col-form-label">Başlık</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" asp-for="Header" placeholder="Başlık">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="FullName" class="col-sm-3 col-form-label">Ad Soyad</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" asp-for="FullName" placeholder="Ad Soyad">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="Title" class="col-sm-3 col-form-label">Ünvan</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" asp-for="Title" placeholder="Ünvan">
+                    </div>
+                </div>
+                <div class="form-group row justify-content-end align-items-end mr-0">
+                    <button class="btn btn-success">Güncelle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
