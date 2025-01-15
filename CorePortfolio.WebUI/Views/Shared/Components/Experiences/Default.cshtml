@@ -1,0 +1,38 @@
+﻿@model List<Experience>
+    <div class="row ">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">İş Deneyimlerim</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th> Çalışılan Pozisyon </th>
+                                    <th> Firma - Süre </th>
+                                    <th> İş Durumu </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Experience item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="@item.ImageUrl" alt="image" />
+                                            @item.ExperienceName
+                                        </td>
+                                        <td>
+                                            <span class="pl-0">@item.ExperienceDate</span>
+                                        </td>
+                                        <td>
+                                            <div class="badge badge-outline-success">Tamamlandı</div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

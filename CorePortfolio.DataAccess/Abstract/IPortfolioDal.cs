@@ -3,4 +3,5 @@
 namespace CorePortfolio.DataAccess.Abstract;
 public interface IPortfolioDal : IBaseEntityDal<Portfolio>
 {
+    List<Portfolio> GetLastFiveProjects();
 }

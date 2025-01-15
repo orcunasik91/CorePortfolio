@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="tr">
 @await Component.InvokeAsync("AdminLayoutHeadComponentPartial")
+@RenderSection("Styles", false);
 <body>
     <div class="container-scroller">
         @await Component.InvokeAsync("AdminLayoutSidenavComponentPartial")
@@ -18,5 +19,6 @@
         </div>
     </div>
     @await Component.InvokeAsync("AdminLayoutScriptsComponentPartial")
+    @RenderSection("Scripts", false);
 </body>
 </html>

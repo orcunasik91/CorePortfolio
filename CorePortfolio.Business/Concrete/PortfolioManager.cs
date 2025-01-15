@@ -32,6 +32,11 @@ public class PortfolioManager : IPortfolioService
         _portfolioDal.Insert(entity);
     }
 
+    public List<Portfolio> Last5Projects()
+    {
+        return _portfolioDal.GetLastFiveProjects();
+    }
+
     public void Update(Portfolio entity)
     {
         _portfolioDal.Update(entity);

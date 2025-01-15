@@ -1,0 +1,39 @@
+﻿@model List<Portfolio>
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="card-title mb-1">Projelerim</h4>
+                <div class="d-flex">
+                    <p class="text-muted mb-1">Başlangıç Tarihi</p>
+                    <p class="text-muted mb-1">Bitiş Tarihi</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="preview-list">
+                        @foreach (Portfolio item in Model)
+                        {
+                            <div class="preview-item border-bottom">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-primary">
+                                        <i class="mdi mdi-file-document"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content d-sm-flex flex-grow justify-content-between align-items-center">
+                                    <div class="flex-grow">
+                                        <h6 class="preview-subject">@item.ProjectName</h6>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-end" style="width: 300px; justify-content: space-between; align-items: center;">
+                                        <p class="text-muted mb-0 mr-3">@item.StartDate.ToString("dd MMMM, yyyy")</p>
+                                        <p class="text-muted mb-0">@item.EndDate.ToString("dd MMMM, yyyy")</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
