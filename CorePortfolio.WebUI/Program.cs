@@ -31,6 +31,8 @@ namespace CorePortfolio.WebUI
             builder.Services.AddScoped<IContactService, ContactManager>();
             builder.Services.AddScoped<IMessageDal, EfMessageRepository>();
             builder.Services.AddScoped<IMessageService, MessageManager>();
+            builder.Services.AddScoped<IToDoListDal, EfToDoListRepository>();
+            builder.Services.AddScoped<IToDoListService, ToDoListManager>();
             
 
             WebApplication app = builder.Build();
