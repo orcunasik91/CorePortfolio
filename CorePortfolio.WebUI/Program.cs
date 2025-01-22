@@ -33,7 +33,7 @@ namespace CorePortfolio.WebUI
             builder.Services.AddScoped<IMessageService, MessageManager>();
             builder.Services.AddScoped<IToDoListDal, EfToDoListRepository>();
             builder.Services.AddScoped<IToDoListService, ToDoListManager>();
-            
+
 
             WebApplication app = builder.Build();
 
@@ -49,6 +49,10 @@ namespace CorePortfolio.WebUI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.MapControllerRoute(
+                name: "areas",
+                pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
 
             app.MapControllerRoute(
                 name: "default",

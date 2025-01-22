@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
+}
+@section Styles{
+    <link rel="stylesheet" href="~/CoronaTemplate/template/assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="~/CoronaTemplate/template/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="~/CoronaTemplate/template/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/CoronaTemplate/template/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+}
+@await Component.InvokeAsync("FeatureStatistic")
+<div class="row">
+    
+    @await Component.InvokeAsync("Last5Projects") 
+</div>
+@await Component.InvokeAsync("Experiences") 
+<div class="row">
+    @await Component.InvokeAsync("MessageList")
+    @await Component.InvokeAsync("PortfolioList")
+    @await Component.InvokeAsync("ToDoListPanel")
+</div>
+@section Scripts{
+    <script src="~/CoronaTemplate/template/assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="~/CoronaTemplate/template/assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="~/CoronaTemplate/template/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="~/CoronaTemplate/template/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="~/CoronaTemplate/template/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <script src="~/CoronaTemplate/template/assets/js/dashboard.js"></script>
+}

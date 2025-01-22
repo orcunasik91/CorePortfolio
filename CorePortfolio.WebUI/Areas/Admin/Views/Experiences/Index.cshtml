@@ -1,0 +1,51 @@
+﻿@model List<Experience>
+@{
+    ViewData["Title"] = "Deneyimler";
+}
+<div class="page-header">
+    <a class="btn btn-primary mx-3" asp-area="Admin" asp-controller="Experiences" asp-action="CreateExperience">Yeni</a>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Experiences" asp-action="Index">Deneyimler</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Deneyim Listesi</li>
+        </ol>
+    </nav>
+</div>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Deneyim Listesi</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th> # </th>
+                            <th> Başlık </th>
+                            <th> Deneyim Süreci </th>
+                            <th> Açıklama </th>
+                            <th> Düzenle </th>
+                            <th> Kaldır </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int count = 1;
+                            foreach (Experience experience in Model)
+                            {
+                                <tr>
+                                    <th> @count </th>
+                                    <td> @experience.ExperienceName</td>
+                                    <td> @experience.ExperienceDate</td>
+                                    <td> @experience.Description.Substring(0,2)...</td>
+                                    <td><a class="btn btn-warning" asp-area="Admin" asp-controller="Experiences" asp-action="GetExperience" asp-route-id="@experience.ExperienceId">Düzenle</a></td>
+                                    <td><a class="btn btn-danger" asp-area="Admin" asp-controller="Experiences" asp-action="RemoveExperience" asp-route-id="@experience.ExperienceId">Kaldır</a></td>
+                                </tr>
+                                count++;
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿@model List<Portfolio>
+@{
+    ViewData["Title"] = "Portfolio";
+}
+<div class="page-header">
+    <a class="btn btn-primary mx-3" asp-area="Admin" asp-controller="Portfolio" asp-action="CreatePortfolio">Yeni</a>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Portfolio" asp-action="Index">Portfolio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Projeler</li>
+        </ol>
+    </nav>
+</div>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Projeler</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th> # </th>
+                            <th> Proje </th>
+                            <th> Görsel </th>
+                            <th> Düzenle </th>
+                            <th> Kaldır </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int count = 1;
+                            foreach (Portfolio portfolio in Model)
+                            {
+                                <tr>
+                                    <th> @count </th>
+                                    <td> @portfolio.ProjectName</td>
+                                    <td> <img src="@portfolio.ImageUrl" style="border-radius:30%;width:100px;height:100px;" /></td>
+                                    <td><a class="btn btn-warning" asp-area="Admin" asp-controller="Portfolio" asp-action="GetPortfolio" asp-route-id="@portfolio.PortfolioId">Düzenle</a></td>
+                                    <td><a class="btn btn-danger" asp-area="Admin" asp-controller="Portfolio" asp-action="RemovePortfolio" asp-route-id="@portfolio.PortfolioId">Kaldır</a></td>
+                                </tr>
+                                count++;
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model List<MyService>
+@{
+    ViewData["Title"] = "Hizmetlerim";
+}
+<div class="page-header">
+    <a class="btn btn-primary mx-3" asp-area="Admin" asp-controller="MyService" asp-action="CreateMyService">Yeni</a>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="MyService" asp-action="Index">Hizmetlerim</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Hizmet Listesi</li>
+        </ol>
+    </nav>
+</div>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hizmet Listesi</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th> Başlık </th>
+                            <th> Görsel </th>
+                            <th> Düzenle </th>
+                            <th> Kaldır </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (MyService item in Model)
+                        {
+                            <tr>
+                                <td> @item.Title</td>
+                                <td> <img src="@item.ImageUrl" style="border-radius:10px;width:50px;height:50px;" alt="Hizmet Görsel" /> </td>
+                                <td> <a class="btn btn-warning mx-3" asp-area="Admin" asp-controller="MyService" asp-action="GetMyService" asp-route-id="@item.MyServiceId">Düzenle</a> </td>
+                                <td> <a class="btn btn-danger mx-3" asp-area="Admin" asp-controller="MyService" asp-action="RemoveMyService" asp-route-id="@item.MyServiceId">Kaldır</a> </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
